@@ -31,22 +31,19 @@ int main(){
 
     printf("**********************************\n");
     printf("Decoding process starts ...\n");
-    mkfifo(FIFO_DECODER_PATH, 0666);
-    int status,fd;
-    char text[BUFF] , decryptedText[BUFF];
-
-
+    mkfifo(FIFO_DECODER_PATH, 0777);
+    int fd;
+    char text[BUFF];
     char ch;
     //Read Encrypted Text From Parent process
     fd = open(FIFO_DECODER_PATH, O_RDONLY);
     read(fd, text, sizeof(text));
-    printf("Received %s\n", text);
+    printf("Decoder : Received %s\n", text);
 
 
     for(int i = 0; text[i] != '\0'; ++i){
         ch = text[i];
         if(ch >= 'a' && ch <= 'z'){
-            //replaces with three earlier letter
             ch = ch - 3;
             if(ch < 'a'){
                 ch = ch + 'z' - 'a' + 1;
@@ -61,11 +58,14 @@ int main(){
             text[i] = ch;
         }
     }
-    printf("Decoded text is : %s\n" , text);
+    printf("Decoder : Decoded text is : %s\n" , text);
 
     writeToFile(text);
-    fd = open(FIFO_DECODER_PATH, O_WRONLY);
-    write(fd , text , sizeof(text) + 1);
-    close(fd);
+    fd = open(FIFO_FINDER_PATH, O_WRONLY);
+    write(fd, text, sizeof(text));
     printf("**********************************\n");
+    close(fd);
+
+
+    return 0;
 }
