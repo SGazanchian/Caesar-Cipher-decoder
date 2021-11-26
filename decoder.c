@@ -15,7 +15,7 @@
 
 void writeToFile(char text[]){
 
-    printf("Writing to file ...\n");
+
     FILE *fptr;
     fptr = fopen("decoder.txt","w");
     if(fptr == NULL)
@@ -29,8 +29,8 @@ void writeToFile(char text[]){
 int main(){
 
 
-    printf("**********************************\n");
-    printf("Decoding process starts ...\n");
+
+
     mkfifo(FIFO_DECODER_PATH, 0777);
     int fd;
     char text[BUFF];
@@ -38,7 +38,7 @@ int main(){
     //Read Encrypted Text From Parent process
     fd = open(FIFO_DECODER_PATH, O_RDONLY);
     read(fd, text, sizeof(text));
-    printf("Decoder : Received %s\n", text);
+
 
 
     for(int i = 0; text[i] != '\0'; ++i){
@@ -58,12 +58,10 @@ int main(){
             text[i] = ch;
         }
     }
-    printf("Decoder : Decoded text is : %s\n" , text);
 
     writeToFile(text);
     fd = open(FIFO_FINDER_PATH, O_WRONLY);
     write(fd, text, sizeof(text));
-    printf("**********************************\n");
     close(fd);
 
 

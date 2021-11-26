@@ -1,0 +1,86 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "OS",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "OS::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OS-Debug-3c1a19d08c38d15c63d2.json",
+					"name" : "OS",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OS_Decoder::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OS_Decoder-Debug-670cb509dfa5e2497f1d.json",
+					"name" : "OS_Decoder",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OS_Finder::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OS_Finder-Debug-8d0e498dd692698f7613.json",
+					"name" : "OS_Finder",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OS_Placer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OS_Placer-Debug-7993c46a39eaa42b83cb.json",
+					"name" : "OS_Placer",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/pegahl/Pegah/5/os/OS/build",
+		"source" : "/home/pegahl/Pegah/5/os/OS"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

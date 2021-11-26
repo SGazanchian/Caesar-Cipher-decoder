@@ -25,17 +25,15 @@ void writeToFile(char text[]){
 int main(){
 
     FILE *fptr;
-    fptr = fopen("decoder.txt","w");
+    fptr = fopen("finder.txt","w");
     fclose(fptr);
-    printf("**********************************\n");
-    printf("Finder process starts ...\n");
+
 
     int fd;
     char text[BUFF];
     mkfifo(FIFO_FINDER_PATH, 0666);
     fd = open(FIFO_FINDER_PATH, O_RDONLY);
     read(fd, text, sizeof(text));
-    printf("Finder : Received %s\n", text);
     struct pos p[BUFF];
     int count;
 
@@ -45,16 +43,25 @@ int main(){
     mkfifo(FIFO_FINDER_PATH_MP, 0666);
     fd = open(FIFO_FINDER_PATH_MP, O_RDONLY);
     read(fd,&count, sizeof(int));
-    printf("Counter is : %d\n",count);
+
     read(fd, p , sizeof(p));
     char words[count][BUFF];
     for (int i = 0; i < count; ++i) {
-
-        printf("heyyy : %s %d %d\n",text, p[i].start , p[i].end);
         memcpy( words[i], &text[p[i].start], p[i].end);
+        words[i][p[i].start + p[i].end] = '\0';
         writeToFile(words[i]);
     }
-    printf("**********************************\n");
+
+
+    mkfifo(FIFO_PLACER_PATH, 0666);
+    fd = open(FIFO_PLACER_PATH, O_WRONLY);
+
+    write(fd,&count, sizeof(int));
+
+    for (int i = 0; i < count; ++i) {
+        write(fd , words[i],sizeof(words[i]));
+    }
+
 
     return 0;
 

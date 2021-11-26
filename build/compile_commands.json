@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/pegahl/Pegah/5/os/OS/build",
+  "command": "/bin/x86_64-linux-gnu-gcc-9   -g   -std=gnu11 -o CMakeFiles/OS_Placer.dir/placer.c.o   -c /home/pegahl/Pegah/5/os/OS/placer.c",
+  "file": "/home/pegahl/Pegah/5/os/OS/placer.c"
+},
+{
+  "directory": "/home/pegahl/Pegah/5/os/OS/build",
+  "command": "/bin/x86_64-linux-gnu-gcc-9   -g   -std=gnu11 -o CMakeFiles/OS_Finder.dir/finder.c.o   -c /home/pegahl/Pegah/5/os/OS/finder.c",
+  "file": "/home/pegahl/Pegah/5/os/OS/finder.c"
+},
+{
+  "directory": "/home/pegahl/Pegah/5/os/OS/build",
+  "command": "/bin/x86_64-linux-gnu-gcc-9   -g   -std=gnu11 -o CMakeFiles/OS_Decoder.dir/decoder.c.o   -c /home/pegahl/Pegah/5/os/OS/decoder.c",
+  "file": "/home/pegahl/Pegah/5/os/OS/decoder.c"
+},
+{
+  "directory": "/home/pegahl/Pegah/5/os/OS/build",
+  "command": "/bin/x86_64-linux-gnu-gcc-9   -g   -std=gnu11 -o CMakeFiles/OS.dir/main.c.o   -c /home/pegahl/Pegah/5/os/OS/main.c",
+  "file": "/home/pegahl/Pegah/5/os/OS/main.c"
+}
+]

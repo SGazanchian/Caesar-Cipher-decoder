@@ -1,0 +1,1 @@
+/bin/x86_64-linux-gnu-gcc-9 -g   CMakeFiles/OS_Finder.dir/finder.c.o  -o OS_Finder 

@@ -107,15 +107,14 @@ int main(){
 
     } else{ //Parent
 
-        printf("//////////////////////////////////////////////////\n");
+
+
         printf("Decoder ...\n");
         mkfifo(FIFO_DECODER_PATH, 0777);
         fd = open(FIFO_DECODER_PATH, O_WRONLY);
         write(fd, text, strlen(text) + 1);
         close(fd);
         waitpid(pid,&status,0);
-        printf("//////////////////////////////////////////////////\n");
-        printf("//////////////////////////////////////////////////\n");
         printf("Finder ...\n");
         printf("Enter positions : ");
         scanf(" %[^\n]%*c",text);
@@ -150,9 +149,33 @@ int main(){
         printf("Counter main is : %d\n",count);
         write(fd,&count, sizeof(int));
         write(fd, p, sizeof (p));
-        waitpid(pid2,&status,sizeof(p));
-        printf("//////////////////////////////////////////////////\n");
 
+
+
+        waitpid(pid2,&status,0);
+
+        char sentence[BUFF];
+
+        printf("Placer ...\n");
+        printf("enter your text : ( press ';' to end input)\n");
+
+        scanf("%[^;]s", sentence);
+        mkfifo(FIFO_PLACER_PATH_MP,0777);
+        fd = open(FIFO_PLACER_PATH_MP, O_RDWR);
+        write(fd,sentence,sizeof (sentence));
+
+        close(fd);
+
+
+        mkfifo(FIFO_PLACER_PATH_MP,0777);
+
+        fd = open(FIFO_PLACER_PATH_MP, O_RDONLY);
+
+
+        read(fd,sentence, sizeof(sentence));
+
+
+        printf("Final Result %s",sentence);
     }
 
 }

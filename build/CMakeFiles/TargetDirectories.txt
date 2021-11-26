@@ -1,0 +1,6 @@
+/home/pegahl/Pegah/5/os/OS/build/CMakeFiles/rebuild_cache.dir
+/home/pegahl/Pegah/5/os/OS/build/CMakeFiles/edit_cache.dir
+/home/pegahl/Pegah/5/os/OS/build/CMakeFiles/OS_Placer.dir
+/home/pegahl/Pegah/5/os/OS/build/CMakeFiles/OS_Finder.dir
+/home/pegahl/Pegah/5/os/OS/build/CMakeFiles/OS_Decoder.dir
+/home/pegahl/Pegah/5/os/OS/build/CMakeFiles/OS.dir
